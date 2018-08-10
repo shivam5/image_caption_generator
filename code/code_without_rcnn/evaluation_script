@@ -1,0 +1,4 @@
+python main.py --mode eval --validation_data 'Data/test_features.npy'
+cd evaluate/
+python create_json_references.py -i ../Data/test.txt -o ../Data/references.json
+python run_evaluations.py -i ../Results/Test_Generated_Captions.txt -r ../Data/references.json > ../eval_results.txt

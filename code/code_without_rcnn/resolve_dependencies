@@ -1,0 +1,2 @@
+python google_drive.py 10GcXTHAoBmej8lbuVDiLMEa6DtkJN6bK dependencies.tar.gz
+tar xzf dependencies.tar.gz

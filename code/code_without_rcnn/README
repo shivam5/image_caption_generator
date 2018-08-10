@@ -1,0 +1,62 @@
+Image Caption generator 
+-----------------------
+By Shivam Mittal and Shubham Dham
+
+
+Dependencies
+-------------
+python
+numpy - pip install numpt
+tensorflow - pip install tensorflow
+requests - pip install requests
+shutil - pip install shutil
+opencv - pip install opencv-python
+more_itertools - pip install more_itertools
+
+
+Useful commands
+-----------------
+
+First resolve the data and model dependencies by running:
+----------------------------------------------------------
+./resolve_dependencies
+
+For generating features from images :
+------------------------------------------
+python convfeatures.py 'Data/Training/' 'Data/training.txt' 'Data/training_features'
+python convfeatures.py 'Data/Test/' 'Data/test.txt' 'Data/test_features'
+python convfeatures.py 'Data/Validation/' 'Data/validation.txt' 'Data/validation_features'
+
+
+For training the network using Data/training_features.npy:
+-------------------------------------------------------------
+python main.py --mode train
+
+If you want to resume training:
+python main.py --mode train --resume 1
+
+Change any parameteres if you want to change for training in configuration.py
+
+
+For generating the captions for test data in Results/Test_Generated_Captions.txt:
+-----------------------------------------------------------------------------------
+python main.py --mode eval --validation_data 'Data/test_features.npy'
+
+
+For evaluating the test captions being generating, and generate a report eval_results.txt
+------------------------------------------------------------------------------------------
+./evaluation_script
+
+
+
+References
+-----------
+
+[1] Code for LSTM and extracting features from pre-trained model : https://github.com/neural-nuts/image-caption-generator
+
+[2] Code for evaluation scripts : https://github.com/vsubhashini/caption-eval
+
+[3] MSCOCO evaluation scripts : Chen, Xinlei, et al. "Microsoft COCO captions: Data collection and evaluation server." arXiv preprint arXiv:1504.00325 (2015).
+
+[4] Show and Tell: A Neural Image Caption Generator - Oriol Vinyals, Alexander Toshev, Samy Bengio, Dumitru Erhan
+
